@@ -1,0 +1,91 @@
+@use "./variables" as *;
+@mixin text {
+  font-size: $font-size-16;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-30;
+  color: $color-text;
+}
+@mixin title {
+  font-size: $font-size-35;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-50;
+  color: $color-title;
+}
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin btn-1 {
+  border: 0.1rem solid $color-red;
+  border-radius: 5rem;
+  padding: 0.7rem 4.4rem;
+  font-size: $font-size-16;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-25;
+  color: $color-red;
+  transition: background-color $transition-timing ease,
+    color $transition-timing ease;
+
+  &:hover {
+    background-color: $color-red;
+    color: $color-white;
+  }
+}
+@mixin btn-2 {
+  padding: 1.6rem 8rem;
+  font-size: $font-size-16;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-25;
+  background-color: $color-red;
+  color: $color-white;
+  border: 0.1rem solid $color-red;
+  border-radius: 1rem;
+  box-shadow: 0 3rem 5.4rem $color-btn-shadow;
+  transition: background-color $transition-timing ease,
+    box-shadow $transition-timing ease, color $transition-timing ease;
+  &:hover {
+    background-color: $color-white;
+    color: $color-red;
+    box-shadow: none;
+  }
+}
+@mixin section-layout {
+  margin-top: $section-padding;
+  margin-bottom: $section-padding;
+  @media (max-width: 575px) {
+    margin-top: $section-padding / 1.5;
+    margin-bottom: $section-padding / 1.5;
+  }
+}
+@mixin box-shadow {
+  box-shadow: 0 5rem 11.4rem $color-box-shadow;
+}
+// responsive container
+$container__padding: 1.5rem;
+
+$container: (
+  576px: 90%,
+  768px: 90%,
+  992px: 96rem,
+  1200px: 114rem,
+);
+
+@mixin container {
+  padding-right: $container__padding;
+  padding-left: $container__padding;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 100%;
+
+  @each $breakpoints, $maxwidth in $container {
+    @media (min-width: $breakpoints) {
+      max-width: $maxwidth;
+    }
+  }
+}
