@@ -46,7 +46,9 @@ body {
   opacity: 1;
   transition: opacity $transition-timing ease;
   &__scrolled {
-    position: sticky;
+    width: 100%;
+    height: auto;
+    position: fixed;
     top: 0;
     z-index: 5;
     box-shadow: 0 0.1rem 1rem $color-box-shadow;

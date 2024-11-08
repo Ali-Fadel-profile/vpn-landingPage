@@ -50,7 +50,9 @@ body {
   transition: opacity 0.3s ease;
 }
 .header__scrolled {
-  position: sticky;
+  width: 100%;
+  height: auto;
+  position: fixed;
   top: 0;
   z-index: 5;
   box-shadow: 0 0.1rem 1rem rgba(79, 86, 101, 0.3);
